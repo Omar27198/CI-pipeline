@@ -14,14 +14,17 @@ jobs:
         - image: circleci/node:13.8.0
       steps:
         - checkout
-        - run: npm i
+        - run: npm install
 
   analyze:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: npm i
+      - run: npm install
+      - run: 
+          command: return 1
+          when: on_fail
           
 workflows:
   my-workflow:
